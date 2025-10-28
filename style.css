@@ -56,3 +56,13 @@ background: radial-gradient(circle at bottom, #080038 0%, #000 100%);
     transform: scale(1.06); 
 }
 
+  #bgColorPicker {
+      background: #B700FF;
+      transition: transform 0.2s;
+      border-radius: 5px;
+}
+
+#bgColorPicker:hover {
+    transform: scale(1.06); 
+  }
+
