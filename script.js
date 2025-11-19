@@ -88,3 +88,19 @@ class Firework {
 
 let fireworks = [];
 
+canvas.addEventListener("click", e => {
+    fireworks.push(new Firework(e.clientX, e.clientY));
+});
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fireworks.forEach((fw, i) => {
+        fw.update();
+        if (fw.particles.length === 0) fireworks.splice(i, 1);
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
