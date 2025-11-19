@@ -16,3 +16,24 @@ const customPhoto = document.getElementById("customPhoto");
 const bgColorPicker = document.getElementById("bgColorPicker");
 const canvasWrapper = document.querySelector(".canvas-wrapper");
 
+bg1.addEventListener("click", () => {
+    canvasWrapper.style.background = "radial-gradient(circle at bottom, #080038 0%, #000 100%)";
+});
+
+bg2.addEventListener("click", () => {
+    canvasWrapper.style.background = "linear-gradient(to top, #6E00AD, #FF990D)";
+});
+
+bg3.addEventListener("click", () => {
+    const url = "https://images.pexels.com/photos/27666757/pexels-photo-27666757.jpeg";
+    canvasWrapper.style.background = `url(${url}) no-repeat center center / cover`;
+});
+
+customPhoto.addEventListener("click", () => {
+    const url = prompt("Enter image URL:");
+    if (url) canvasWrapper.style.background = `url(${url}) no-repeat center center / cover`;
+});
+
+bgColorPicker.addEventListener("input", () => {
+    canvasWrapper.style.background = bgColorPicker.value;
+});
