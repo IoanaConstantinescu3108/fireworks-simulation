@@ -63,3 +63,28 @@ class Particle {
         ctx.fill();
     }
 }
+
+class Firework {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.particles = [];
+        this.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
+
+        for (let i = 0; i < 100; i++) {
+            this.particles.push(new Particle(x, y, this.color));
+        }
+    }
+
+    update() {
+        this.particles.forEach(p => {
+            p.update();
+            p.draw();
+            
+        });
+        this.particles = this.particles.filter(p => p.life > 0);
+    }
+}
+
+let fireworks = [];
+
