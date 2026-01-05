@@ -77,12 +77,16 @@ bgColorPicker.addEventListener("input", () => {
     resetBackground();
     canvasWrapper.style.background = bgColorPicker.value;
 });
-videoBtn.addEventListener("click", () => {
+videoBtn.addEventListener("click", async () => {
     canvasWrapper.style.background = "transparent";
+
     bgVideo.style.display = "block";
-    bgVideo.play().catch(error => {
-        console.error("Video play failed:", error);
-    });
+    try {
+        await bgVideo.play(); 
+        console.log("Video playing!");
+    } catch (err) {
+        console.error("Video play failed:", err);
+    }
 });
 
 class Particle {
