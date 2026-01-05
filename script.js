@@ -1,5 +1,8 @@
 const canvas = document.getElementById("fireworksCanvas");
+const videoBtn = document.getElementById("videoBtn");
+const bgVideo = document.getElementById("bgVideo");
 const ctx = canvas.getContext("2d");
+
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -53,21 +56,33 @@ const bgColorPicker = document.getElementById("bgColorPicker");
 const canvasWrapper = document.querySelector(".canvas-wrapper");
 
 bg1.addEventListener("click", () => {
+    resetBackground();
     canvasWrapper.style.background = "radial-gradient(circle at bottom, #080038 0%, #000 100%)";
 });
 bg2.addEventListener("click", () => {
+    resetBackground();
     canvasWrapper.style.background = "linear-gradient(to top, #6E00AD, #FF990D)";
 });
 bg3.addEventListener("click", () => {
+    resetBackground();
     const url = "https://images.pexels.com/photos/27666757/pexels-photo-27666757.jpeg";
     canvasWrapper.style.background = `url(${url}) no-repeat center center / cover`;
 });
 customPhoto.addEventListener("click", () => {
+    resetBackground();
     const url = prompt("Enter image URL:");
     if (url) canvasWrapper.style.background = `url(${url}) no-repeat center center / cover`;
 });
 bgColorPicker.addEventListener("input", () => {
+    resetBackground();
     canvasWrapper.style.background = bgColorPicker.value;
+});
+videoBtn.addEventListener("click", () => {
+    canvasWrapper.style.background = "transparent";
+    bgVideo.style.display = "block";
+    bgVideo.play().catch(error => {
+        console.error("Video play failed:", error);
+    });
 });
 
 class Particle {
@@ -142,3 +157,10 @@ function animate() {
 }
 
 animate();
+
+function resetBackground() {
+    bgVideo.style.display = "none";
+    bgVideo.pause(); 
+    
+    canvasWrapper.style.background = ""; 
+}
