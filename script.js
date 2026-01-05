@@ -160,6 +160,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
+
 animate();
 
 function resetBackground() {

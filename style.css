@@ -20,6 +20,17 @@ html, body {
     z-index: 0; 
 }
 
+.video-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0; 
+}
+
+
 #fireworksCanvas{
 position: fixed;
 display: block;
@@ -80,7 +91,7 @@ pointer-events: auto;
     transform: scale(1.06); 
   }
 
-  #bgVideo {
+ #bgVideo {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,8 +99,8 @@ pointer-events: auto;
     min-height: 100%;
     width: auto;
     height: auto;
-    z-index: 0; 
-    transform: translate(-50%, -50%);
-    display: none; 
-    object-fit: cover;
+    transform: translate(-50%, -50%); 
+    object-fit: cover;               
+    display: none;
+    z-index: 0;
 }
